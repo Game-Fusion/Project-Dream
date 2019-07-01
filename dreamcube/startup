@@ -1,0 +1,42 @@
+local version = 0.1
+
+local w, h = term.getSize()
+
+-- Define basic global functions
+
+function centre(y, string)
+  local x = (w / 2) - (#string / 2)
+  term.setCursorPos(x, y)
+  print(string)
+end
+
+function centreSlow(y, string)
+  local x = (w / 2) - (#string / 2)
+  term.setCursorPos(x, y)
+  textutils.slowPrint(string)
+end
+
+-- Start of boot animation
+-- This part is done regardless of colour support
+term.setBackgroundColour(colours.white)
+term.clear()
+sleep(0.25)
+
+-- Boot animation
+
+term.setTextColour(colours.lightGrey)
+centre(8, "Dreamcube.")
+sleep(0.25)
+  
+term.setTextColour(colours.grey)
+centre(8, "Dreamcube.")
+sleep(0.25)
+  
+term.setTextColour(colours.black)
+centre(8, "Dreamcube.")
+sleep(1)
+centreSlow(10, "Still dreaming.")
+sleep(1.5)
+
+-- keep as separate program for now until done
+shell.run("/DC/bios.lua")
