@@ -125,12 +125,23 @@ local event, key = os.pullEvent("key")
     shell.run("/DC/file")
   
   elseif key == keys.three then
-    shell.run("/DC/melody")
+  
+    term.setBackgroundColour(colours.lightGrey)
+    term.clear()
+    sleep(0.15)
+    
+    term.setBackgroundColour(colours.grey)
+    term.clear()
+    sleep(0.15)
+    
+    term.setBackgroundColour(colours.black)
+    term.clear()
+    sleep(0.15)
+    
+    shell.run("/DC/melody.lua")
     
   elseif key == keys.four  then
     shell.run("/DC/system")
-    
-  else
-  sleep()
+
   end
- end
+end
